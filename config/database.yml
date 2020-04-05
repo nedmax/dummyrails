@@ -4,7 +4,7 @@ default: &default
   encoding: unicode
   host: db
   username: postgres
-  password:
+  password: dummyrails
   pool: 5
 
 development:
