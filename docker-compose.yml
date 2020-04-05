@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  db:
+    image: 'postgres'
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./:/local
+
+  redis:
+    image: 'redis:4.0-alpine'
+    ports:
+      - "6379:6379"
+    volumes:
+      - 'redis:/data'
+    sysctls:
+      - net.core.somaxconn=1023
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - '.env.docker'
+
+volumes:
+  redis:
+  postgres:
