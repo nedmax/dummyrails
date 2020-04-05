@@ -12,7 +12,7 @@ Simple Ruby on Rails running on Kubernetes project.
 
 - Database creation
 
-		docker-compose run web rake db:create
+		make setup-db
 
 - Database initialization
 
