@@ -7,6 +7,7 @@ Simple Ruby on Rails running on Kubernetes project.
 - docker
 - minikube
 - make
+- kubectl
 
 ## Setup
 

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummyrails
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: dummyrails
+  template:
+    metadata:
+      labels:
+        app: dummyrails
+    spec:
+      containers:
+      - name: dummyrails
+        image: docker.io/nedmax/dummyrails:0.0.3
+        envFrom:
+          - configMapRef:
+              name: rails-config
+        ports:
+        - containerPort: 3000
