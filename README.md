@@ -15,9 +15,21 @@ Simple Ruby on Rails running on Kubernetes project.
 
 		make setup-db
 
-- Database initialization
+- Kubernetes
 
+ 		make setup-k8s
+		minikube service dummyrails
 
-- How to run the test suite
+## Test
+
+		make test
+
 
 ## Deployment instructions
+
+		make deploy
+
+
+## Local Development
+
+		make run
