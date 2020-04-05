@@ -1,2 +1,6 @@
-<h1>Welcome</h1>
-<p>Hello World</p>
+<% @articles.each do |article| %>
+
+<h1><%= article.title %></h1>
+<p><%= article.text %></p>
+
+<% end -%>
